@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - sam --version
+      - cd assets
+      - mkdir python
+      - sed -e "s/<VERSION>/${VERSION}/g" - "s/<SAR_APP_NAME>/${SAR_APP_NAME}/g" template.txt >> template.yml
+      - cat template.yml
+      - wget https://raw.githubusercontent.com/awslabs/aws-lambda-powertools-python/develop/LICENSE
+      - wget https://raw.githubusercontent.com/awslabs/aws-lambda-powertools-python/develop/README.md
+      - pip install aws-lambda-powertools==$VERSION -t python
+      - zip -rq layer.zip python
+      - sam package --template-file template.yml --output-template-file packaged.yml --s3-bucket $LAYER_DEPLOY_BUCKET
+      - sam publish --template packaged.yml --region $AWS_REGION
+      - aws serverlessrepo put-application-policy --application-id arn:aws:serverlessrepo:$AWS_REGION:$AWS_ACCOUNT:applications/$SAR_APP_NAME --statements Principals='*',Actions=Deploy
+  post_build:
+    commands:
