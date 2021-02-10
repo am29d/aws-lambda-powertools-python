@@ -688,14 +688,8 @@
 <h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Capture key fields from Lambda context, cold start and structures logging output as JSON</li>
-<li>Log Lambda event when instructed (disabled by default)<ul>
-<li>Enable via <code>POWERTOOLS_LOGGER_LOG_EVENT="true"</code> or explicitly via decorator param</li>
-</ul>
-</li>
-<li>Log sampling enables DEBUG log level for a percentage of requests (disabled by default)<ul>
-<li>Enable via <code>POWERTOOLS_LOGGER_SAMPLE_RATE=0.1</code>, ranges from 0 to 1, where 0.1 is 10% and 1 is 100%</li>
-</ul>
-</li>
+<li>Log Lambda event when instructed (disabled by default)</li>
+<li>Log sampling enables DEBUG log level for a percentage of requests (disabled by default)</li>
 <li>Append additional keys to structured log at any point in time</li>
 </ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
@@ -834,8 +828,8 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
 
-<span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span>
-<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="hll"><span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span>
+</span><span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
  <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Collecting payment&quot;</span><span class="p">)</span>
  <span class="o">...</span>
  <span class="c1"># You can log entire objects too</span>
@@ -946,7 +940,8 @@
 </tr>
 </tbody>
 </table>
-<p>You can also explicitly log any incoming event using <code>log_event</code> param or via <code>POWERTOOLS_LOGGER_LOG_EVENT</code> env var.</p>
+<h4>Logging incoming event</h4>
+<p>When debugging in non-production environments, you can instruct Logger to log the incoming event with <code>log_event</code> param or via <code>POWERTOOLS_LOGGER_LOG_EVENT</code> env var.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is disabled by default to prevent sensitive info being logged.</p>
