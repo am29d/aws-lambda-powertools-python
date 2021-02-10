@@ -731,15 +731,15 @@
  8
  9
 10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">Resources</span><span class="p">:</span>
-    <span class="nt">HelloWorldFunction</span><span class="p">:</span>
-        <span class="nt">Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
-        <span class="nt">Properties</span><span class="p">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">...</span>
-        <span class="nt">Runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.8</span>
-        <span class="nt">Environment</span><span class="p">:</span>
-            <span class="nt">Variables</span><span class="p">:</span>
-<span class="hll">                <span class="nt">POWERTOOLS_SERVICE_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">payment</span>
-</span><span class="hll">                <span class="nt">POWERTOOLS_METRICS_NAMESPACE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ServerlessAirline</span>
+  <span class="nt">HelloWorldFunction</span><span class="p">:</span>
+    <span class="nt">Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+    <span class="nt">Properties</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">Runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.8</span>
+    <span class="nt">Environment</span><span class="p">:</span>
+      <span class="nt">Variables</span><span class="p">:</span>
+<span class="hll">        <span class="nt">POWERTOOLS_SERVICE_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">payment</span>
+</span><span class="hll">        <span class="nt">POWERTOOLS_METRICS_NAMESPACE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ServerlessAirline</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -847,27 +847,27 @@
 21
 22
 23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="hll">    <span class="nt">&quot;BookingConfirmation&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-</span>    <span class="nt">&quot;_aws&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;Timestamp&quot;</span><span class="p">:</span> <span class="mi">1592234975665</span><span class="p">,</span>
-        <span class="nt">&quot;CloudWatchMetrics&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-<span class="hll">                <span class="nt">&quot;Namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleApplication&quot;</span><span class="p">,</span>
-</span>                <span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">[</span>
-<span class="hll">                        <span class="s2">&quot;service&quot;</span>
-</span>                    <span class="p">]</span>
-                <span class="p">],</span>
-                <span class="nt">&quot;Metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-<span class="hll">                        <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;BookingConfirmation&quot;</span><span class="p">,</span>
-</span>                        <span class="nt">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Count&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
+<span class="hll">  <span class="nt">&quot;BookingConfirmation&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span>  <span class="nt">&quot;_aws&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Timestamp&quot;</span><span class="p">:</span> <span class="mi">1592234975665</span><span class="p">,</span>
+    <span class="nt">&quot;CloudWatchMetrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+<span class="hll">        <span class="nt">&quot;Namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleApplication&quot;</span><span class="p">,</span>
+</span>        <span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+<span class="hll">            <span class="s2">&quot;service&quot;</span>
+</span>          <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;Metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+<span class="hll">            <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;BookingConfirmation&quot;</span><span class="p">,</span>
+</span>            <span class="nt">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Count&quot;</span>
+          <span class="p">}</span>
         <span class="p">]</span>
-    <span class="p">},</span>
-<span class="hll">    <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleService&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+<span class="hll">  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleService&quot;</span>
 </span><span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1010,28 +1010,28 @@
 22
 23
 24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;SuccessfulBooking&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-    <span class="nt">&quot;_aws&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;Timestamp&quot;</span><span class="p">:</span> <span class="mi">1592234975665</span><span class="p">,</span>
-        <span class="nt">&quot;CloudWatchMetrics&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;Namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleApplication&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">[</span>
-                        <span class="s2">&quot;service&quot;</span>
-                    <span class="p">]</span>
-                <span class="p">],</span>
-                <span class="nt">&quot;Metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;SuccessfulBooking&quot;</span><span class="p">,</span>
-                        <span class="nt">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Count&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
+  <span class="nt">&quot;SuccessfulBooking&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+  <span class="nt">&quot;_aws&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Timestamp&quot;</span><span class="p">:</span> <span class="mi">1592234975665</span><span class="p">,</span>
+    <span class="nt">&quot;CloudWatchMetrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;Namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;ExampleApplication&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Dimensions&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">[</span>
+            <span class="s2">&quot;service&quot;</span>
+          <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;Metrics&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;SuccessfulBooking&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;Count&quot;</span>
+          <span class="p">}</span>
         <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;booking&quot;</span><span class="p">,</span>
-<span class="hll">    <span class="nt">&quot;booking_id&quot;</span><span class="p">:</span> <span class="s2">&quot;booking_uuid&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;booking&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;booking_id&quot;</span><span class="p">:</span> <span class="s2">&quot;booking_uuid&quot;</span>
 </span><span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1144,7 +1144,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-02-09
+      Last update: 2021-02-10
     
   </small>
 </div>

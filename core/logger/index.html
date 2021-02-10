@@ -709,14 +709,14 @@
  9
 10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">Resources</span><span class="p">:</span>
   <span class="nt">HelloWorldFunction</span><span class="p">:</span>
-      <span class="nt">Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
-      <span class="nt">Properties</span><span class="p">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">...</span>
-      <span class="nt">Runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.8</span>
-      <span class="nt">Environment</span><span class="p">:</span>
-          <span class="nt">Variables</span><span class="p">:</span>
-<span class="hll">              <span class="nt">LOG_LEVEL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
-</span><span class="hll">              <span class="nt">POWERTOOLS_SERVICE_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example</span>
+    <span class="nt">Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+    <span class="nt">Properties</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">Runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.8</span>
+    <span class="nt">Environment</span><span class="p">:</span>
+      <span class="nt">Variables</span><span class="p">:</span>
+<span class="hll">        <span class="nt">LOG_LEVEL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
+</span><span class="hll">        <span class="nt">POWERTOOLS_SERVICE_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -848,35 +848,35 @@
 26
 27
 28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="p">{</span>
-       <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2020-05-24 18:17:33,774&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;collect.handler:1&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="s2">&quot;payment&quot;</span><span class="p">,</span>
-<span class="hll">       <span class="nt">&quot;lambda_function_name&quot;</span><span class="p">:</span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
-</span><span class="hll">       <span class="nt">&quot;lambda_function_memory_size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
-</span><span class="hll">       <span class="nt">&quot;lambda_function_arn&quot;</span><span class="p">:</span><span class="s2">&quot;arn:aws:lambda:eu-west-1:12345678910:function:test&quot;</span><span class="p">,</span>
-</span><span class="hll">       <span class="nt">&quot;lambda_request_id&quot;</span><span class="p">:</span><span class="s2">&quot;52fdfc07-2182-154f-163f-5f0f9a621d72&quot;</span><span class="p">,</span>
-</span><span class="hll">       <span class="nt">&quot;cold_start&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span>       <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-       <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Collecting payment&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-       <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2020-05-24 18:17:33,774&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;collect.handler:15&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="s2">&quot;payment&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;lambda_function_name&quot;</span><span class="p">:</span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;lambda_function_memory_size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
-       <span class="nt">&quot;lambda_function_arn&quot;</span><span class="p">:</span><span class="s2">&quot;arn:aws:lambda:eu-west-1:12345678910:function:test&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;lambda_request_id&quot;</span><span class="p">:</span><span class="s2">&quot;52fdfc07-2182-154f-163f-5f0f9a621d72&quot;</span><span class="p">,</span>
-       <span class="nt">&quot;cold_start&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-       <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-       <span class="nt">&quot;message&quot;</span><span class="p">:{</span>
-<span class="hll">          <span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="s2">&quot;collect_payment&quot;</span><span class="p">,</span>
-</span><span class="hll">          <span class="nt">&quot;charge_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ch_AZFlk2345C0&quot;</span>
-</span>       <span class="p">}</span>
-    <span class="p">}</span>
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-24 18:17:33,774&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;collect.handler:1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment&quot;</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;lambda_function_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+</span><span class="hll">  <span class="nt">&quot;lambda_function_memory_size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+</span><span class="hll">  <span class="nt">&quot;lambda_function_arn&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:lambda:eu-west-1:12345678910:function:test&quot;</span><span class="p">,</span>
+</span><span class="hll">  <span class="nt">&quot;lambda_request_id&quot;</span><span class="p">:</span> <span class="s2">&quot;52fdfc07-2182-154f-163f-5f0f9a621d72&quot;</span><span class="p">,</span>
+</span><span class="hll">  <span class="nt">&quot;cold_start&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span>  <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Collecting payment&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-24 18:17:33,774&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;collect.handler:15&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;lambda_function_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;lambda_function_memory_size&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+  <span class="nt">&quot;lambda_function_arn&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:lambda:eu-west-1:12345678910:function:test&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;lambda_request_id&quot;</span><span class="p">:</span> <span class="s2">&quot;52fdfc07-2182-154f-163f-5f0f9a621d72&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;cold_start&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="hll">    <span class="nt">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;collect_payment&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nt">&quot;charge_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ch_AZFlk2345C0&quot;</span>
+</span>  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 </div>
@@ -983,13 +983,13 @@
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
-   <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-24 18:17:33,774&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;collect.handler:1&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-<span class="hll">   <span class="nt">&quot;order_id&quot;</span><span class="p">:</span> <span class="s2">&quot;order_id_value&quot;</span><span class="p">,</span>
-</span>   <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Collecting payment&quot;</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-05-24 18:17:33,774&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;collect.handler:1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;order_id&quot;</span><span class="p">:</span> <span class="s2">&quot;order_id_value&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Collecting payment&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1029,13 +1029,13 @@
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
-   <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-01-12 14:08:12,357&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;collect.handler:1&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment&quot;</span><span class="p">,</span>
-   <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-<span class="hll">   <span class="nt">&quot;request_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1123&quot;</span><span class="p">,</span>
-</span>   <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Collecting payment&quot;</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-01-12 14:08:12,357&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;collect.handler:1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="hll">  <span class="nt">&quot;request_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1123&quot;</span><span class="p">,</span>
+</span>  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Collecting payment&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1613,7 +1613,7 @@ for the given name and level to the logging module. By default, this logs all bo
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-02-09
+      Last update: 2021-02-10
     
   </small>
 </div>
