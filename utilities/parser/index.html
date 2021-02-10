@@ -724,11 +724,7 @@
                 
                   <h1>Parser</h1>
                 
-                <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It requires an extra dependency before using it.</p>
-</div>
-<p>This utility provides data parsing and deep validation using <a href="https://pydantic-docs.helpmanual.io/">Pydantic</a>.</p>
+                <p>This utility provides data parsing and deep validation using <a href="https://pydantic-docs.helpmanual.io/">Pydantic</a>.</p>
 <p><strong>Key features</strong></p>
 <ul>
 <li>Defines data in pure Python classes, then parse, validate and extract only what you want</li>
@@ -736,9 +732,9 @@
 <li>Enforces type hints at runtime with user-friendly errors</li>
 </ul>
 <p><strong>Extra dependency</strong></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>This will install <a href="https://github.com/samuelcolvin/pydantic">pydantic</a> and <a href="https://github.com/python/typing/tree/master/typing_extensions">typing_extensions</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will increase the overall package size by approximately 75MB due to Pydantic dependency.</p>
 </div>
 <p>Install parser's extra dependencies using <strong><code>pip install aws-lambda-powertools[pydantic]</code></strong>.</p>
 <h2 id="defining-models">Defining models<a class="headerlink" href="#defining-models" title="Permanent link">&para;</a></h2>
@@ -1486,7 +1482,7 @@
 <p><strong>Looking to auto-generate models from JSON, YAML, JSON Schemas, OpenApi, etc?</strong></p>
 <p>Use Koudai Aono's <a href="https://github.com/koxudaxi/datamodel-code-generator">data model code generation tool for Pydantic</a></p>
 </div>
-<p>There are number of advanced use cases well documented in Pydantic's doc such as creating <a href="https://pydantic-docs.helpmanual.io/usage/models/#faux-immutability">immutable models</a>, <a href="(https://pydantic-docs.helpmanual.io/usage/models/#field-with-dynamic-default-value)">declaring fields with dynamic values</a> e.g. UUID, and <a href="https://pydantic-docs.helpmanual.io/usage/models/#helper-functions">helper functions to parse models from files, str</a>, etc.</p>
+<p>There are number of advanced use cases well documented in Pydantic's doc such as creating <a href="https://pydantic-docs.helpmanual.io/usage/models/#faux-immutability">immutable models</a>, <a href="https://pydantic-docs.helpmanual.io/usage/models/#field-with-dynamic-default-value">declaring fields with dynamic values</a>) e.g. UUID, and <a href="https://pydantic-docs.helpmanual.io/usage/models/#helper-functions">helper functions to parse models from files, str</a>, etc.</p>
 <p>Two possible unknown use cases are Models and exception' serialization. Models have methods to <a href="https://pydantic-docs.helpmanual.io/usage/exporting_models/">export them</a> as <code>dict</code>, <code>JSON</code>, <code>JSON Schema</code>, and Validation exceptions can be exported as JSON.</p>
 <div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">serializing_models_exceptions.py</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1649,7 +1645,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-02-02
+      Last update: 2021-02-10
     
   </small>
 </div>

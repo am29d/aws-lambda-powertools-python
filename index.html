@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install" class="md-skip">
+        <a href="#tenets" class="md-skip">
           Skip to content
         </a>
       
@@ -229,6 +229,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tenets" class="md-nav__link">
+    Tenets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install" class="md-nav__link">
     Install
   </a>
@@ -265,13 +272,6 @@
         <li class="md-nav__item">
   <a href="#debug-mode" class="md-nav__link">
     Debug mode
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tenets" class="md-nav__link">
-    Tenets
   </a>
   
 </li>
@@ -508,6 +508,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tenets" class="md-nav__link">
+    Tenets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install" class="md-nav__link">
     Install
   </a>
@@ -548,13 +555,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#tenets" class="md-nav__link">
-    Tenets
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -575,10 +575,20 @@
                   <h1>Homepage</h1>
                 
                 <p>A suite of utilities for AWS Lambda functions to ease adopting best practices such as tracing, structured logging, custom metrics, and more.</p>
-<div class="admonition info">
-<p><strong>Looking for a quick run through of the core utilities?</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Looking for a quick read through how the core features are used?</p>
 <p>Check out <a href="https://aws.amazon.com/blogs/opensource/simplifying-serverless-best-practices-with-lambda-powertools/">this detailed blog post</a> with a practical example.</p>
 </div>
+<h2 id="tenets">Tenets<a class="headerlink" href="#tenets" title="Permanent link">&para;</a></h2>
+<p>This project separates core utilities that will be available in other runtimes vs general utilities that might not be available across all runtimes.</p>
+<ul>
+<li><strong>AWS Lambda only</strong>. We optimise for AWS Lambda function environments and supported runtimes only. Utilities might work with web frameworks and non-Lambda environments, though they are not officially supported.</li>
+<li><strong>Eases the adoption of best practices</strong>. The main priority of the utilities is to facilitate best practices adoption, as defined in the AWS Well-Architected Serverless Lens; all other functionality is optional.</li>
+<li><strong>Keep it lean</strong>. Additional dependencies are carefully considered for security and ease of maintenance, and prevent negatively impacting startup time.</li>
+<li><strong>We strive for backwards compatibility</strong>. New features and changes should keep backwards compatibility. If a breaking change cannot be avoided, the deprecation and migration process should be clearly defined.</li>
+<li><strong>We work backwards from the community</strong>. We aim to strike a balance of what would work best for 80% of customers. Emerging practices are considered and discussed via Requests for Comment (RFCs)</li>
+<li><strong>Idiomatic</strong>. Utilities follow programming language idioms and language-specific best practices.</li>
+</ul>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>Powertools is available in PyPi. You can use your favourite dependency management tool to install it</p>
 <ul>
@@ -648,7 +658,7 @@
 </span><span class="hll">         <span class="p p-Indicator">-</span> <span class="kt">!GetAtt</span> <span class="l l-Scalar l-Scalar-Plain">AwsLambdaPowertoolsPythonLayer.Outputs.LayerVersionArn</span>
 </span></code></pre></div>
 </td></tr></table>
-<details class="multiple optional-class"><summary>Example IAM permissions to deploy layer</summary><blockquote>
+<details class="tip"><summary>Example of least-privileged IAM permissions to deploy Layer</summary><blockquote>
 <p>Credits to <a href="https://github.com/mwarkentin">mwarkentin</a> for providing the scoped down IAM permissions.</p>
 </blockquote>
 <p>The region and the account id for <code>CloudFormationTransform</code> and <code>GetCfnTemplate</code> are fixed.</p>
@@ -726,39 +736,39 @@
     <span class="nt">Properties</span><span class="p">:</span>
       <span class="nt">PolicyName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PowertoolsLambdaLayerPolicy</span>
       <span class="nt">PolicyDocument</span><span class="p">:</span>
-        <span class="nt">Version</span><span class="p">:</span> <span class="s">&quot;2012-10-17&quot;</span>
-        <span class="nt">Statement</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CloudFormationTransform</span>
-            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
-            <span class="nt">Action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudformation:CreateChangeSet</span>
-            <span class="nt">Resource</span><span class="p">:</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:cloudformation:us-east-1:aws:transform/Serverless-2016-10-31</span>
-          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GetCfnTemplate</span>
-            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
-            <span class="nt">Action</span><span class="p">:</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">serverlessrepo:CreateCloudFormationTemplate</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">serverlessrepo:GetCloudFormationTemplate</span>
-            <span class="nt">Resource</span><span class="p">:</span>
-              <span class="c1"># this is arn of the powertools SAR app</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:serverlessrepo:eu-west-1:057560766410:applications/aws-lambda-powertools-python-layer</span>
-          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">S3AccessLayer</span>
-            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
-            <span class="nt">Action</span><span class="p">:</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">s3:GetObject</span>
-            <span class="nt">Resource</span><span class="p">:</span>
-              <span class="c1"># AWS publishes to an external S3 bucket locked down to your account ID</span>
-              <span class="c1"># The below example is us publishing lambda powertools</span>
-              <span class="c1"># Bucket: awsserverlessrepo-changesets-plntc6bfnfj</span>
-              <span class="c1"># Key: *****/arn:aws:serverlessrepo:eu-west-1:057560766410:applications-aws-lambda-powertools-python-layer-versions-1.10.2/aeeccf50-****-****-****-*********</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:s3:::awsserverlessrepo-changesets-*/*</span>
-          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GetLayerVersion</span>
-            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
-            <span class="nt">Action</span><span class="p">:</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lambda:PublishLayerVersion</span>
-              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lambda:GetLayerVersion</span>
-            <span class="nt">Resource</span><span class="p">:</span>
-              <span class="p p-Indicator">-</span> <span class="kt">!Sub</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:aws-lambda-powertools-python-layer*</span>
-      <span class="nt">Roles</span><span class="p">:</span>
+<span class="hll">        <span class="nt">Version</span><span class="p">:</span> <span class="s">&quot;2012-10-17&quot;</span>
+</span><span class="hll">        <span class="nt">Statement</span><span class="p">:</span>
+</span><span class="hll">          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CloudFormationTransform</span>
+</span><span class="hll">            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
+</span><span class="hll">            <span class="nt">Action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cloudformation:CreateChangeSet</span>
+</span><span class="hll">            <span class="nt">Resource</span><span class="p">:</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:cloudformation:us-east-1:aws:transform/Serverless-2016-10-31</span>
+</span><span class="hll">          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GetCfnTemplate</span>
+</span><span class="hll">            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
+</span><span class="hll">            <span class="nt">Action</span><span class="p">:</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">serverlessrepo:CreateCloudFormationTemplate</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">serverlessrepo:GetCloudFormationTemplate</span>
+</span><span class="hll">            <span class="nt">Resource</span><span class="p">:</span>
+</span><span class="hll">              <span class="c1"># this is arn of the powertools SAR app</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:serverlessrepo:eu-west-1:057560766410:applications/aws-lambda-powertools-python-layer</span>
+</span><span class="hll">          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">S3AccessLayer</span>
+</span><span class="hll">            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
+</span><span class="hll">            <span class="nt">Action</span><span class="p">:</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">s3:GetObject</span>
+</span><span class="hll">            <span class="nt">Resource</span><span class="p">:</span>
+</span><span class="hll">              <span class="c1"># AWS publishes to an external S3 bucket locked down to your account ID</span>
+</span><span class="hll">              <span class="c1"># The below example is us publishing lambda powertools</span>
+</span><span class="hll">              <span class="c1"># Bucket: awsserverlessrepo-changesets-plntc6bfnfj</span>
+</span><span class="hll">              <span class="c1"># Key: *****/arn:aws:serverlessrepo:eu-west-1:057560766410:applications-aws-lambda-powertools-python-layer-versions-1.10.2/aeeccf50-****-****-****-*********</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:s3:::awsserverlessrepo-changesets-*/*</span>
+</span><span class="hll">          <span class="p p-Indicator">-</span> <span class="nt">Sid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GetLayerVersion</span>
+</span><span class="hll">            <span class="nt">Effect</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allow</span>
+</span><span class="hll">            <span class="nt">Action</span><span class="p">:</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lambda:PublishLayerVersion</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lambda:GetLayerVersion</span>
+</span><span class="hll">            <span class="nt">Resource</span><span class="p">:</span>
+</span><span class="hll">              <span class="p p-Indicator">-</span> <span class="kt">!Sub</span> <span class="l l-Scalar l-Scalar-Plain">arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:aws-lambda-powertools-python-layer*</span>
+</span>      <span class="nt">Roles</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="nt">Ref</span><span class="p">:</span> <span class="s">&quot;PowertoolsLayerIamRole&quot;</span>
 </code></pre></div>
 </td></tr></table>
@@ -911,16 +921,6 @@
 </td></tr></table>
 </div>
 </div>
-<h2 id="tenets">Tenets<a class="headerlink" href="#tenets" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>AWS Lambda only</strong>. We optimise for AWS Lambda function environments and supported runtimes only. Utilities might work with web frameworks and non-Lambda environments, though they are not officially supported.</li>
-<li><strong>Eases the adoption of best practices</strong>. The main priority of the utilities is to facilitate best practices adoption, as defined in the AWS Well-Architected Serverless Lens; all other functionality is optional.</li>
-<li><strong>Keep it lean</strong>. Additional dependencies are carefully considered for security and ease of maintenance, and prevent negatively impacting startup time.</li>
-<li><strong>We strive for backwards compatibility</strong>. New features and changes should keep backwards compatibility. If a breaking change cannot be avoided, the deprecation and migration process should be clearly defined.</li>
-<li><strong>We work backwards from the community</strong>. We aim to strike a balance of what would work best for 80% of customers. Emerging practices are considered and discussed via Requests for Comment (RFCs)</li>
-<li><strong>Idiomatic</strong>. Utilities follow programming language idioms and language-specific best practices.</li>
-</ul>
-<p><em><code>*</code> Core utilities are Tracer, Logger and Metrics. Optional utilities may vary across languages.</em></p>
                 
                   
                     
